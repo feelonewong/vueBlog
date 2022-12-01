@@ -1,6 +1,7 @@
 <script setup>
 import { RouterView } from 'vue-router'
 import { getCurrentInstance } from 'vue';
+import { StarOutlined, StepBackwardOutlined } from '@ant-design/icons-vue';
 const {proxy}  = getCurrentInstance();
 
 const info = ()=>{
@@ -17,6 +18,8 @@ const info = ()=>{
     <a-button type="dashed">Dashed Button</a-button>
     <a-button type="text">Text Button</a-button>
     <a-button type="link">Link Button</a-button>
+    <star-outlined />
+    <step-backward-outlined />
   <RouterView />
 </template>
 
