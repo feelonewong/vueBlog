@@ -77,33 +77,10 @@
             <div><h3>2</h3></div>
             <div><h3>3</h3></div>
             <div><h3>4</h3></div>
-          </a-carousel>
-          <div class="box">
-            <h1> <router-link to="/">文章标题</router-link></h1>
-            <a-space>
-              <span>作者: 张三</span>
-              <span>分类：Vue3</span>
-              <span>发布日期: 2002年11月6日</span>
-            </a-space>
-          </div>
-          <div class="box">
-            <h1> <router-link to="/">文章标题</router-link></h1>
-            <a-space>
-              <span>作者: 张三</span>
-              <span>分类：Vue3</span>
-              <span>发布日期: 2002年11月6日</span>
-            </a-space>
-          </div>
-          <div class="box">
-            <h1> <router-link to="/">文章标题</router-link></h1>
-            <a-space>
-              <span>作者: 张三</span>
-              <span>分类：Vue3</span>
-              <span>发布日期: 2002年11月6日</span>
-            </a-space>
-          </div>
+          </a-carousel> 
+          <RouterView />
         </a-col>
-        <a-col :span="6">col-12</a-col>
+        <a-col :span="6">col-8</a-col>
       </a-row>
     </div>
     <footer class="container">底部</footer>
@@ -111,15 +88,18 @@
 </template>
 
 <script setup>
-import { RouterView,RouterLink } from 'vue-router'
+import { RouterLink } from 'vue-router'
 import { LeftCircleOutlined, RightCircleOutlined } from '@ant-design/icons-vue';
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import 'bulma/sass/utilities/_all.sass';
 @import 'bulma/sass/components/navbar.sass';
 @import 'bulma/sass/elements/container.sass';
 @import 'bulma/sass/elements/box.sass';
+</style>
+
+<style lang="scss" scoped>
 .ant-carousel :deep(.slick-slide) {
   text-align: center;
   height: 160px;
