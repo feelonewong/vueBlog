@@ -4,23 +4,18 @@
       <router-link :to="props.link">{{props.title}}</router-link>
     </a-typography-title>
     <a-space>
-      
         <a-space>
           <user-outlined></user-outlined>
           <span>作者：<slot name="author">{{props.author}}</slot>  </span>
         </a-space>
-      
         <a-space>
           <folder-outlined></folder-outlined>
           <span>分类：{{props.category}} <slot name="category">{{props.category}}</slot></span>
         </a-space>
-      
-      
         <a-space>
           <clock-circle-outlined></clock-circle-outlined>
           <span>发布时间：{{props.pubdate}} <slot name="pubdate">{{props.pubdate}}</slot></span>
         </a-space>
-      
     </a-space>
     <a-typography-paragraph type="secondary">
       {{props.desc}}
