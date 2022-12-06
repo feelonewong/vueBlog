@@ -131,7 +131,6 @@ const archiveData = reactive([
 function handleResponse(val) {
   console.log(val, "val");
 }
-
 </script>
 
 <style lang="scss">
