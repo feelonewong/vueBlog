@@ -3,7 +3,7 @@
     <h1 class="is-size-6">{{props.name}}</h1>
     <!-- 搜索框 -->
     <div v-if="props.type === 'search'">
-      <a-input-search @search="handleSearch" placeholder="请输入..."></a-input-search>
+      <a-input-search v-model:value="searchValue" @search="handleSearch" placeholder="请输入..."></a-input-search>
     </div>
     <!-- 文章 -->
     <div v-if="(props.type === 'news'&& props.newsData.length>0)">
@@ -35,6 +35,7 @@
 
 
 <script setup>
+import { reactive, ref } from "@vue/reactivity";
 const props = defineProps({
   name: {
     type: String,
@@ -60,9 +61,11 @@ const props = defineProps({
     default: []
   }
 })
-
-const handleSearch = () => {
-  console.log("handleSearch")
+const emits = defineEmits(['backResponse'])
+const searchValue = ref("1122")
+const handleSearch = (val) => {
+  emits('backResponse', val)
+  console.log("handleSearch", val)
 }
 </script>
 

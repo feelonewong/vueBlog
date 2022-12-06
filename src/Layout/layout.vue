@@ -81,7 +81,7 @@
           <RouterView />
         </a-col>
         <a-col :span="6">
-          <aside-box type="search"></aside-box>
+          <aside-box type="search" @back-response="handleResponse"></aside-box>
           <aside-box type="news" name="最新文章" :newsData="newsDataComp"></aside-box>
           <aside-box type="tag" name="标签" :tagsData="tagsData"></aside-box>
           <aside-box type="archive" name="归档" :archiveData="archiveData"></aside-box>
@@ -128,6 +128,9 @@ const archiveData = reactive([
 { date: "2015年4月10日"}
 ])
 
+function handleResponse(val) {
+  console.log(val, "val");
+}
 
 </script>
 
