@@ -3,7 +3,7 @@
     <h1 class="is-size-6">{{props.name}}</h1>
     <!-- 搜索框 -->
     <div v-if="props.type === 'search'">
-      <a-input-search placeholder="请输入..."></a-input-search>
+      <a-input-search @search="handleSearch" placeholder="请输入..."></a-input-search>
     </div>
     <!-- 文章 -->
     <div v-if="(props.type === 'news'&& props.newsData.length>0)">
@@ -60,6 +60,10 @@ const props = defineProps({
     default: []
   }
 })
+
+const handleSearch = () => {
+  console.log("handleSearch")
+}
 </script>
 
 <style scoped lang="scss">
