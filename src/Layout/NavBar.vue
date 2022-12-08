@@ -48,7 +48,7 @@
               <div class="navbar-item">
                 <div class="buttons">
                   <a-space>
-                    <a-button type="primary" @click="handleLogin">Login</a-button>
+                    <a-button type="primary">Login</a-button>
                     <a-button>Register</a-button>
                   </a-space>
                 </div>
@@ -60,30 +60,30 @@
 </template>
 
 <script setup>
-import axios from "axios";
-import { reactive,onMounted, getCurrentInstance } from "vue";
-axios.defaults.baseURL = import.meta.env.VITE_APP_API_BASEURL
+import { reactive, onMounted, getCurrentInstance } from "vue";
+import { message } from 'ant-design-vue';
+import {getCategorys} from "../Api/index"
 
-let categorysData = reactive([])
 
 onMounted(() => {
-  getCategorys()
+  handleCategorys()
 })
+
+let categorysData = reactive([])
 const internalInstance = getCurrentInstance()
-function getCategorys() {
-  axios.get("/categorys/?format=json").then(res => {
+
+function handleCategorys() {
+  getCategorys().then(res => {
     if (res.status == 200) {
       categorysData = res.data
-      internalInstance.ctx.$forceUpdate()
     }
+    internalInstance.ctx.$forceUpdate()
   }).catch(err => {
     console.log(err)
   })
 }
 
-function handleLogin() {
-  getCategorys()
-}
+
 
 
 </script>
