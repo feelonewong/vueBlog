@@ -61,29 +61,26 @@
 
 <script setup>
 import { reactive, onMounted, getCurrentInstance } from "vue";
-import { message } from 'ant-design-vue';
-import {getCategorys} from "../Api/index"
+import {useCategoryStore} from "../stores/categorys"
+const internalInstance = getCurrentInstance()
+
+// 使用store取数据
+const store = useCategoryStore()
 
 
 onMounted(() => {
-  handleCategorys()
 })
 
-let categorysData = reactive([])
-const internalInstance = getCurrentInstance()
-
-function handleCategorys() {
-  getCategorys().then(res => {
-    if (res.status == 200) {
-      categorysData = res.data
+let categorysData = store.getCategoryDatas
+if (!categorysData.length) {
+  store.apiCategory().then(res => {
+    if (res === 200) {
+      categorysData = store.categorysData
+      internalInstance.ctx.$forceUpdate()
     }
-    internalInstance.ctx.$forceUpdate()
-  }).catch(err => {
-    console.log(err)
   })
 }
 
 
-
-
+// 全局风格管理 中英文切换 tabbar都可以使用全局状态管理
 </script>
