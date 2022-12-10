@@ -6,3 +6,10 @@ export function getCategorys() {
     method: "get",
   })
 }
+
+export function getHomeArticle() {
+  return request({
+    url: "/article/",
+    method: "get",
+  })
+}
